@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plantilla de Cajas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>Registro de Cajas</h1>
+      <div class="datetime">
+        <span class="label">Fecha y hora:</span>
+        <time id="datetime" aria-live="polite"></time>
+      </div>
+    </header>
+
+    <section class="card" aria-label="Formulario de captura">
+      <div class="grid">
+        <!-- Izquierda -->
+        <div class="col left" aria-label="Datos de caja">
+          <div class="field">
+            <label for="partNumber">Número parte</label>
+            <input id="partNumber" name="partNumber" type="text" autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label for="quantity">Cantidad</label>
+            <input id="quantity" name="quantity" type="number" inputmode="numeric" min="0" step="1" />
+          </div>
+
+          <div class="field">
+            <label for="serial">Serial</label>
+            <input id="serial" name="serial" type="text" autocomplete="off" />
+          </div>
+
+          <div class="field">
+            <label for="boxNumber">Número de caja</label>
+            <input id="boxNumber" name="boxNumber" type="text" autocomplete="off" />
+          </div>
+
+          <div class="actions">
+            <button id="addBox" type="button">Agregar caja</button>
+            <button id="clear" type="button" class="secondary">Limpiar</button>
+          </div>
+        </div>
+
+        <!-- Derecha -->
+        <div class="col right" aria-label="Resumen">
+          <div class="summary">
+            <h2>Resumen</h2>
+
+            <div class="summary-row">
+              <span>Total cajas</span>
+              <strong id="totalBoxes">0</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Total cantidad</span>
+              <strong id="totalQty">0</strong>
+            </div>
+
+            <div class="field">
+              <label for="validatedBy">Nombre (valida / escaneó)</label>
+              <input id="validatedBy" name="validatedBy" type="text" placeholder="Escriba el nombre" autocomplete="name" />
+            </div>
+          </div>
+
+          <div class="tablewrap" aria-label="Cajas escaneadas">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Número parte</th>
+                  <th>Cantidad</th>
+                  <th>Serial</th>
+                  <th>Número de caja</th>
+                </tr>
+              </thead>
+              <tbody id="rows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>prueba1 • plantilla web simple (HTML/CSS/JS)</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
