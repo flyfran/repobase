@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitácora – Historial de Registros</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <span aria-hidden="true">📒</span>
+  <h1>Bitácora</h1>
+</header>
+
+<main>
+
+  <!-- ── New entry form ── -->
+  <section class="card" aria-labelledby="form-heading">
+    <h2 id="form-heading">Nuevo Registro</h2>
+    <form id="entry-form" novalidate>
+      <div class="form-row">
+        <input
+          id="entry-title"
+          type="text"
+          placeholder="Título del registro *"
+          required
+          maxlength="200"
+          aria-label="Título del registro"
+        />
+        <select id="entry-category" aria-label="Categoría">
+          <option value="info">ℹ️ Info</option>
+          <option value="success">✅ Éxito</option>
+          <option value="warning">⚠️ Advertencia</option>
+          <option value="error">❌ Error</option>
+        </select>
+      </div>
+      <textarea
+        id="entry-body"
+        placeholder="Descripción (opcional)"
+        aria-label="Descripción del registro"
+        maxlength="2000"
+      ></textarea>
+      <button type="submit" class="btn-primary">＋ Agregar registro</button>
+    </form>
+  </section>
+
+  <!-- ── History section ── -->
+  <section aria-labelledby="history-heading">
+    <div class="history-header">
+      <h2 id="history-heading">
+        Historial
+        <span id="entry-count" class="count-badge">0</span>
+      </h2>
+      <div class="filter-bar" role="search">
+        <input
+          id="filter-text"
+          type="search"
+          placeholder="🔍 Buscar…"
+          aria-label="Buscar en el historial"
+        />
+        <select id="filter-category" aria-label="Filtrar por categoría">
+          <option value="">Todas las categorías</option>
+          <option value="info">Info</option>
+          <option value="success">Éxito</option>
+          <option value="warning">Advertencia</option>
+          <option value="error">Error</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="log-list" role="list" aria-live="polite" aria-label="Historial de registros"></div>
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
